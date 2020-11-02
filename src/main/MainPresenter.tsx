@@ -18,16 +18,24 @@ function MainPresenter(){
             </div>
             <LinkButtonBlock>
                 <InnerLinkButton width={130} link="/fashion">
+                    <div>
                     패션 페이지
+                    </div>
                 </InnerLinkButton>
                 <InnerLinkButton width={130} link="/location">
-                    위치변경 페이지
+                    <div>
+                    위치 변경 페이지
+                    </div>
                 </InnerLinkButton>
                 <InnerLinkButton width={130} link="/goods">
-                    물품확인 페이지
+                    <div>
+                    물품 확인 페이지
+                    </div>
                 </InnerLinkButton>
                 <InnerLinkButton width={130} link="/weather">
+                    <div>
                     날씨 확인 페이지
+                    </div>
                 </InnerLinkButton>
             </LinkButtonBlock>
         </>
