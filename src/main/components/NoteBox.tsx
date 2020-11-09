@@ -21,6 +21,7 @@ const NoteContent = styled.div`
     padding-top: 200px;
     line-height: 1.5;
     font-family: 'MapoFlowerIsland';
+    text-align: center;
 `
 
 function NoteBox(){

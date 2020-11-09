@@ -4,6 +4,7 @@ import InnerLinkButton from '../common/InnerLinkButton';
 import NoteBox from './components/NoteBox';
 import LocationPinButton from './components/LocationPinButton';
 import WeatherDetailButton from './components/WeatherDetailButton';
+import LogoButton from '../common/LogoButton';
 
 
 const LinkButtonBlock = styled.div`
@@ -24,9 +25,8 @@ function MainPresenter(){
 
     return(
         <MainPage>
+            <LogoButton/>
             <div>
-            <h1>아들 이거 입고가!</h1>
-            <h3>현재 시간은 {new Date().toLocaleTimeString()} 입니다.</h3>
             <NoteBox></NoteBox>
             <LocationPinButton/>
             <WeatherDetailButton/>

@@ -4,17 +4,28 @@ import WeatherPin from '../../static/image/WeatherPin.png';
 import InnerLinkButton from '../../common/InnerLinkButton';
 
 const ButtonBox = styled.div`
-    width: 70px;
+    width: 100px;
     height: 50px;
     position: fixed;
-    right: 300px;
+    right: 140px;
     bottom: 100px;
+    text-align: center;
+    @font-face {
+        font-family: 'MaplestoryOTFLight';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .buttonText{
+        font-family: 'MaplestoryOTFLight';
+        margin-top: 20px;
+    }
 `
 
 const ButtonIcon = styled.div`
     background-image: url(${WeatherPin});
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background-size: contain;
     background-repeat: no-repeat;
 `
@@ -24,7 +35,7 @@ function WeatherDetailButton(){
         <ButtonBox>
             <InnerLinkButton link="/weather" color="#fff" colorHover="#bfbfbf">
                 <ButtonIcon/>
-                <div>세부 날씨</div>
+                <div className="buttonText">세부 날씨</div>
             </InnerLinkButton>
         </ButtonBox>
     )    

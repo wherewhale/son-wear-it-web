@@ -24,3 +24,5 @@ function SkeletonButton({width, height, color, src, children}: SkeletonButtonPro
         <Skeleton width={width} height={height} color={color} src={src}>{children}</Skeleton>
     )
 }
+
+export default SkeletonButton;
