@@ -1,0 +1,102 @@
+[
+    {
+        "Gu": "강남구",
+        "name": "Gangnam"
+    },
+    {
+        "Gu": "강동구",
+        "name": "Gangdong"
+    },
+    {
+        "Gu": "강북구",
+        "name": "Gangbuk"
+    },
+    {
+        "Gu": "강서구",
+        "name": "Gangseo"
+    },
+    {
+        "Gu": "관악구",
+        "name": "Gwanak"
+    },
+    {
+        "Gu": "광진구",
+        "name": "Gwangjin"
+    },
+    {
+        "Gu": "구로구",
+        "name": "Guro"
+    },
+    {
+        "Gu": "금천구",
+        "name": "Geumcheon"
+    },
+    {
+        "Gu": "노원구",
+        "name": "Nowon"
+    },
+    {
+        "Gu": "도봉구",
+        "name": "Dobong"
+    },
+    {
+        "Gu": "동대문구",
+        "name": "Dongdaemun"
+    },
+    {
+        "Gu": "동작구",
+        "name": "Dongjak"
+    },
+    {
+        "Gu": "마포구",
+        "name": "Mapo"
+    },
+    {
+        "Gu": "서대문구",
+        "name": "Seodaemun"
+    },
+    {
+        "Gu": "서초구",
+        "name": "Seocho"
+    },
+    {
+        "Gu": "성동구",
+        "name": "Seongdong"
+    },
+    {
+        "Gu": "성북구",
+        "name": "Seongbuk"
+    },
+    {
+        "Gu": "송파구",
+        "name": "Songpa"
+    },
+    {
+        "Gu": "양천구",
+        "name": "Yangcheon"
+    },
+    {
+        "Gu": "영등포구",
+        "name": "Yeongdeungpo"
+    },
+    {
+        "Gu": "용산구",
+        "name": "Yongsan"
+    },
+    {
+        "Gu": "은평구",
+        "name": "Eunpyeong"
+    },
+    {
+        "Gu": "종로구",
+        "name": "Jongno"
+    },
+    {
+        "Gu": "중구",
+        "name": "Jung"
+    },
+    {
+        "Gu": "중랑구",
+        "name": "Jungnang"
+    }
+]

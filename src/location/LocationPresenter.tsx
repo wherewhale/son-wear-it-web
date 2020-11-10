@@ -1,17 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import InnerLinkButton from '../common/InnerLinkButton';
+import LocationSelect from './components/LocationSelect';
+import LogoButton from '../common/LogoButton';
+
+
+const LocationPage = styled.div`
+    width: 100%;
+`
 
 function LocationPresenter(){
+
     return(
-        <>
-            <div>
-                위치 변경 및 확인 페이지입니다.
-            </div>
-            <InnerLinkButton link="/" width={150} color="#D4F4FA" colorHover="#DAD9FF">
-                <div>뒤로가기</div>
-            </InnerLinkButton>
-        </>
+        <LocationPage>
+            <LogoButton/>
+            <LocationSelect/>
+        </LocationPage>
     )
 
 }

@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import LocationPin from '../../static/image/LocationPin.png';
 import InnerLinkButton from '../../common/InnerLinkButton';
+import {useDispatch,useSelector} from 'react-redux';
+import {setLocation} from '../../module/location/actions';
+import {RootState} from '../../module';
 
 const ButtonBox = styled.div`
     width: 150px;
@@ -50,13 +53,12 @@ const ButtonIcon = styled.div`
 `
 
 function LocationPinButton(){
-    const location = "광진구 화양동";
-
+    const loc = useSelector((state : RootState)=>state.location);
     return(
         <ButtonBox>
             <LocationTextBox>
                 <div className="text">현 위치: </div>
-                <div className="location">{location}</div>
+                <div className="location">{loc.location}</div>
             </LocationTextBox>
             <InnerLinkButton link="/location" color="#fff" colorHover="#bfbfbf">
                 <ButtonIcon/>
