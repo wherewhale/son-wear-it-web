@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import Coat from '../../static/image/Coat.png';
-import Scarf from '../../static/image/Scarf.png';
-import Pants from '../../static/image/Pants.png';
+import weatherData from '../../weather/testdata/weatherData.json';
+import FashionSelector from '../../lib/utils/FashionSelector';
+import FashionBoxModule from './FashionBoxModule';
 
 const FashionBlock = styled.div
 `
@@ -41,52 +41,23 @@ const StyledLink = styled(Link)`
     }
 `;
 
-const GoodsBox = styled.div`
-    width: 90px;
-    text-align: center;
-    @font-face {
-        font-family: 'MaruBuri-Regular';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-    .goodsText{
-        font-family: 'MaruBuri-Regular';
-        color: #bfbfbf;
-        margin-left: 30px;
-    }
-`
-
-const GoodsImage = styled.div<{
-    src: string;
-}>
-`
-    margin-left: 30px;
-    width: 60px;
-    height: 60px;
-    background-image: url(${props => props.src});
-    background-size: contain;
-    background-repeat: no-repeat;
-`
 
 function FashionModule() {
+    const temp = weatherData[0].temperture;
+    const [fashion, setFashion] = React.useState([
+        {wear: "Cap"}, {wear: "Tshirts"}, {wear: "Pants"}
+    ]);
+    React.useEffect(() =>{
+        setFashion(FashionSelector(temp));
+    }, []);
     return(
         <FashionBlock>
             <StyledLink to="/fashion">
                 <LinkButton>오늘 패션</LinkButton>
             </StyledLink>
-            <GoodsBox>
-                <GoodsImage src={Coat}/>
-                <div className="goodsText">코트</div>
-            </GoodsBox>
-            <GoodsBox>
-                <GoodsImage src={Scarf}/>
-                <div className="goodsText">목도리</div>
-            </GoodsBox>
-            <GoodsBox>
-                <GoodsImage src={Pants}/>
-                <div className="goodsText">긴바지</div>
-            </GoodsBox>
+            <FashionBoxModule wear={fashion[0].wear}/>
+            <FashionBoxModule wear={fashion[1].wear}/>
+            <FashionBoxModule wear={fashion[2].wear}/>
         </FashionBlock>
     );
 }

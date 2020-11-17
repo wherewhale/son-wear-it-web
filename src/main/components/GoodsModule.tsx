@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import Mask from '../../static/image/Mask.png';
 import Umbrella from '../../static/image/Umbrella.png';
+import GoodsBoxModule from './GoodsBoxModule';
+import GoodsSelector from '../../lib/utils/GoodsSelector';
+import weatherData from '../../weather/testdata/weatherData.json';
 
 const GoodsBlock = styled.div
 `
@@ -39,48 +42,19 @@ const StyledLink = styled(Link)`
     }
 `;
 
-const GoodsBox = styled.div`
-    width: 90px;
-    text-align: center;
-    @font-face {
-        font-family: 'MaruBuri-Regular';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-    .goodsText{
-        font-family: 'MaruBuri-Regular';
-        color: #bfbfbf;
-        margin-left: 30px;
-    }
-`
-
-const GoodsImage = styled.div<{
-    src: string;
-}>
-`
-    margin-left: 30px;
-    width: 60px;
-    height: 60px;
-    background-image: url(${props => props.src});
-    background-size: contain;
-    background-repeat: no-repeat;
-`
-
 function GoodsModule() {
+    const [good, setGood] = React.useState(0);
+
+    useEffect(() => {
+        setGood(GoodsSelector(weatherData[0].icon));
+    },[])
+
     return(
         <GoodsBlock>
             <StyledLink to="/goods">
                 <LinkButton>필요 물품</LinkButton>
             </StyledLink>
-            <GoodsBox>
-                <GoodsImage src={Mask}/>
-                <div className="goodsText">마스크</div>
-            </GoodsBox>
-            <GoodsBox>
-                <GoodsImage src={Umbrella}/>
-                <div className="goodsText">우산</div>
-            </GoodsBox>
+            <GoodsBoxModule goods={good}/>
         </GoodsBlock>
     );
 }

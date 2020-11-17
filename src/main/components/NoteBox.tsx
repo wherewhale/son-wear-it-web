@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import MainNote from '../../static/image/MainNote.png';
+import NoteText from '../../lib/utils/NoteText';
+import weatherData from '../../weather/testdata/weatherData.json';
 
 const Note = styled.div`
     width: 512px;
@@ -25,10 +27,17 @@ const NoteContent = styled.div`
 `
 
 function NoteBox(){
+    const [noteText, setNoteText] = React.useState('');
+
+    React.useEffect(() => {
+        setNoteText(NoteText(weatherData[0].windchill, weatherData[0].icon));
+    }, []);
+
     return(
         <Note>
             <NoteContent>
-                안녕! 이건 테스트로 쓰는 글씨란다. 지금부터 너는 이런방식을 이용해서 글을 쓰게 될거야.
+                {noteText}<br/><br/>
+                마스크는 꼭 잘 쓰고 다니렴!
             </NoteContent>
         </Note>
     )

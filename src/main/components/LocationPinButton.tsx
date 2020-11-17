@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import LocationPin from '../../static/image/LocationPin.png';
 import InnerLinkButton from '../../common/InnerLinkButton';
-import {useDispatch,useSelector} from 'react-redux';
-import {setLocation} from '../../module/location/actions';
+import {useSelector} from 'react-redux';
 import {RootState} from '../../module';
 
 const ButtonBox = styled.div`
