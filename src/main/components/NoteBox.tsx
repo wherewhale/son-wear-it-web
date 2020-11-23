@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import MainNote from '../../static/image/MainNote.png';
 import NoteText from '../../lib/utils/NoteText';
 import weatherData from '../../weather/testdata/weatherData.json';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../module';
+import Axios from 'axios';
 
 const Note = styled.div`
     width: 512px;
@@ -28,9 +31,20 @@ const NoteContent = styled.div`
 
 function NoteBox(){
     const [noteText, setNoteText] = React.useState('');
+    const loc = useSelector((state : RootState)=>state.location);
 
     React.useEffect(() => {
-        setNoteText(NoteText(weatherData[0].windchill, weatherData[0].icon));
+        Axios({
+            method: 'get',
+            url: `http://localhost:5000/api/weather/${loc.gu}`,
+        })
+        .then((result) => {
+            console.log(result);
+            setNoteText(NoteText(result.data[0].windchill, result.data[0].icon));
+        })
+        .catch(error => {
+            console.error(error);
+        })
     }, []);
 
     return(

@@ -6,4 +6,5 @@ export const SET_LOCATION = "location/SET_LOCATION";
 
 export const setLocation = createStandardAction(SET_LOCATION)<{
     location : string;
+    gu : string;
 }>();

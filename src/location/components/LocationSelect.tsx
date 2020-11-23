@@ -78,12 +78,12 @@ const ButtonIcon = styled.div`
 
 function LocationSelect() {
     const dispatch = useDispatch();
-    const location = React.useCallback((location : string) => (
-        dispatch(setLocation({ location : location}))
+    const location = React.useCallback((location : string, gu: string) => (
+        dispatch(setLocation({ location : location, gu: gu}))
     ), [dispatch]);
     const graphData = LocationGu.map((LocationGu) => {
         return(
-            <Dropdown.Item onClick={() => location(`${LocationGu.Gu}`)}>{LocationGu.Gu}</Dropdown.Item>
+            <Dropdown.Item onClick={() => location(`${LocationGu.Gu}`,`${LocationGu.name}`)}>{LocationGu.Gu}</Dropdown.Item>
         );
         }
     );

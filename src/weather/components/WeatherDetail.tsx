@@ -9,6 +9,9 @@ import fine from '../../static/image/fine.png';
 import ultrafine from '../../static/image/ultrafine.png';
 import DustCheck from '../../lib/utils/DustCheck';
 import UltraCheck from '../../lib/utils/UltraCheck';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../module';
+import Axios from 'axios';
 
 
 
@@ -114,17 +117,38 @@ const DustIcon = styled.div<{
 
 function WeatherDetail(){
 
+    const loc = useSelector((state : RootState)=>state.location);
+    const [dust, setDust] = React.useState(0);
+    const [ultraDust, setUltraDust] = React.useState(0);
     const [dustText, setDustText] = React.useState('good');
     const [ultraText, setUltraText] = React.useState('good');
+    const [temp, setTemp] = React.useState(0);
+    const [wind, setWind] = React.useState(0);
+    const [icon, setIcon] = React.useState('Sunny');
 
     React.useEffect(() => {
-        setDustText(DustCheck(weatherData[0].finedust));
-        setUltraText(UltraCheck(weatherData[0].ultrafinedust));
+        Axios({
+            method: 'get',
+            url: `http://localhost:5000/api/weather/${loc.gu}`,
+        })
+        .then((result) => {
+            console.log(result);
+            setDustText(DustCheck(result.data[0].finedust));
+            setUltraText(UltraCheck(result.data[0].ultrafinedust));
+            setDust(result.data[0].finedust);
+            setUltraDust(result.data[0].ultrafinedust);
+            setTemp(result.data[0].temperture);
+            setWind(result.data[0].windchill);
+            setIcon(result.data[0].icon);
+        })
+        .catch(error => {
+            console.error(error);
+        })
     },[]);
     
 
 
-    if(weatherData[0].icon === "Sunny"){
+    if(icon === "Sunny"){
         return(
             <DetailPage>
                 <StyledLink to="/">
@@ -134,11 +158,11 @@ function WeatherDetail(){
                     <TempertureBox>
                         <TempertureBlock>
                             현재 온도 :
-                            <div className="number">{weatherData[0].temperture}</div>
+                            <div className="number">{temp}</div>
                         </TempertureBlock>
                         <TempertureBlock>
                             체감 온도 :
-                            <div className="number">{weatherData[0].windchill}</div>
+                            <div className="number">{wind}</div>
                         </TempertureBlock>
                     </TempertureBox>
                     <IconBox>
@@ -149,19 +173,19 @@ function WeatherDetail(){
                         <DustLine>
                             <DustIcon src={fine}/>
                             <div>미세먼지:</div>
-                            <div className={dustText}>{weatherData[0].finedust}</div>
+                            <div className={dustText}>{dust}</div>
                         </DustLine>
                         <DustLine>
                             <DustIcon src={ultrafine}/>
                             <div>초미세먼지:</div>
-                            <div className={ultraText}>{weatherData[0].ultrafinedust}</div>
+                            <div className={ultraText}>{ultraDust}</div>
                         </DustLine>
                     </DustBox>
                 </WeatherLineBlock>
             </DetailPage>
         );
     }
-    else if(weatherData[0].icon === "Cloudy"){
+    else if(icon === "Cloudy"){
         return(
             <DetailPage>
                 <StyledLink to="/">
@@ -171,11 +195,11 @@ function WeatherDetail(){
                     <TempertureBox>
                         <TempertureBlock>
                             현재 온도 :
-                            <div className="number">{weatherData[0].temperture}</div>
+                            <div className="number">{temp}</div>
                         </TempertureBlock>
                         <TempertureBlock>
                             체감 온도 :
-                            <div className="number">{weatherData[0].windchill}</div>
+                            <div className="number">{wind}</div>
                         </TempertureBlock>
                     </TempertureBox>
                     <IconBox>
@@ -186,12 +210,12 @@ function WeatherDetail(){
                         <DustLine>
                             <DustIcon src={fine}/>
                             <div>미세먼지:</div>
-                            <div className={dustText}>{weatherData[0].finedust}</div>
+                            <div className={dustText}>{dust}</div>
                         </DustLine>
                         <DustLine>
                             <DustIcon src={ultrafine}/>
                             <div>초미세먼지:</div>
-                            <div className={ultraText}>{weatherData[0].ultrafinedust}</div>
+                            <div className={ultraText}>{ultraDust}</div>
                         </DustLine>
                     </DustBox>
                 </WeatherLineBlock>
@@ -209,11 +233,11 @@ function WeatherDetail(){
                     <TempertureBox>
                         <TempertureBlock>
                             현재 온도 :
-                            <div className="number">{weatherData[0].temperture}</div>
+                            <div className="number">{temp}</div>
                         </TempertureBlock>
                         <TempertureBlock>
                             체감 온도 :
-                            <div className="number">{weatherData[0].windchill}</div>
+                            <div className="number">{wind}</div>
                         </TempertureBlock>
                     </TempertureBox>
                     <IconBox>
@@ -224,12 +248,12 @@ function WeatherDetail(){
                         <DustLine>
                             <DustIcon src={fine}/>
                             <div>미세먼지:</div>
-                            <div className={dustText}>{weatherData[0].finedust}</div>
+                            <div className={dustText}>{dust}</div>
                         </DustLine>
                         <DustLine>
                             <DustIcon src={ultrafine}/>
                             <div>초미세먼지:</div>
-                            <div className={ultraText}>{weatherData[0].ultrafinedust}</div>
+                            <div className={ultraText}>{ultraDust}</div>
                         </DustLine>
                     </DustBox>
                 </WeatherLineBlock>

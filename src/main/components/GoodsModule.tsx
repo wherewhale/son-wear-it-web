@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import Mask from '../../static/image/Mask.png';
-import Umbrella from '../../static/image/Umbrella.png';
 import GoodsBoxModule from './GoodsBoxModule';
 import GoodsSelector from '../../lib/utils/GoodsSelector';
 import weatherData from '../../weather/testdata/weatherData.json';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../module';
+import Axios from 'axios';
 
 const GoodsBlock = styled.div
 `
@@ -44,10 +45,22 @@ const StyledLink = styled(Link)`
 
 function GoodsModule() {
     const [good, setGood] = React.useState(0);
+    const loc = useSelector((state : RootState)=>state.location);
 
     useEffect(() => {
-        setGood(GoodsSelector(weatherData[0].icon));
-    },[])
+        Axios({
+            method: 'get',
+            url: `http://localhost:5000/api/weather/${loc.gu}`,
+        })
+        .then((result) => {
+            console.log(result);
+            setGood(GoodsSelector(result.data[0].icon));
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }, []);
+        
 
     return(
         <GoodsBlock>

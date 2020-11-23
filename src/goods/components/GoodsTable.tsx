@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import weatherData from '../../weather/testdata/weatherData.json';
 import GoodsSelector from '../../lib/utils/GoodsSelector';
 import GoodsBlock from './GoodsBlock';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../module';
+import Axios from 'axios';
 
 const FashionTablePage = styled.div`
     width 70%;
@@ -10,10 +13,20 @@ const FashionTablePage = styled.div`
 `
 
 function GoodsTable(){
-    const icon = weatherData[0].icon;
+    const loc = useSelector((state : RootState)=>state.location);
     const [weather, setWeather] = React.useState(0);
     React.useEffect(() =>{
-        setWeather(GoodsSelector(icon));
+        Axios({
+            method: 'get',
+            url: `http://localhost:5000/api/weather/${loc.gu}`,
+        })
+        .then((result) => {
+            console.log(result);
+            setWeather(GoodsSelector(result.data[0].icon));
+        })
+        .catch(error => {
+            console.error(error);
+        })
     }, [])
     return(
         <FashionTablePage>

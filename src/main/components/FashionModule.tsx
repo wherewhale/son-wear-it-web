@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import weatherData from '../../weather/testdata/weatherData.json';
 import FashionSelector from '../../lib/utils/FashionSelector';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../module';
 import FashionBoxModule from './FashionBoxModule';
+import Axios from 'axios';
 
 const FashionBlock = styled.div
 `
@@ -43,12 +46,22 @@ const StyledLink = styled(Link)`
 
 
 function FashionModule() {
-    const temp = weatherData[0].temperture;
+    const loc = useSelector((state : RootState)=>state.location);
     const [fashion, setFashion] = React.useState([
         {wear: "Cap"}, {wear: "Tshirts"}, {wear: "Pants"}
     ]);
     React.useEffect(() =>{
-        setFashion(FashionSelector(temp));
+        Axios({
+            method: 'get',
+            url: `http://localhost:5000/api/weather/${loc.gu}`,
+        })
+        .then((result) => {
+            console.log(result);
+            setFashion(FashionSelector(result.data[0].temperture));
+        })
+        .catch(error => {
+            console.error(error);
+        })
     }, []);
     return(
         <FashionBlock>

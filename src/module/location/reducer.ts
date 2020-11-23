@@ -5,7 +5,8 @@ import produce from 'immer';
 
 //초기 상태
 const initialState: Location = {
-    location : "광진구"
+    location : "광진구",
+    gu : "Gwangjin"
 };
 
 //리듀서
@@ -13,6 +14,7 @@ const location = createReducer<Location, locationAction>(initialState, {
   [SET_LOCATION]: (state, action) =>
     produce(state, draft => {
       draft.location = action.payload.location;
+      draft.gu = action.payload.gu;
     }),
 });
 

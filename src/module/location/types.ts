@@ -5,4 +5,5 @@ export type locationAction = ActionType<typeof actions>;
 
 export type Location = {
     location : string;
+    gu : string;
 }
