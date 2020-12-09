@@ -18,7 +18,7 @@ function GoodsTable(){
     React.useEffect(() =>{
         Axios({
             method: 'get',
-            url: `http://localhost:5000/api/weather/${loc.gu}`,
+            url: `http://52.79.236.97:5000/api/weather/${loc.gu}`,
         })
         .then((result) => {
             console.log(result);
