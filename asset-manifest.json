@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/son-wear-it-web/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/son-wear-it-web/static/js/main.dd20b80d.chunk.js",
+    "main.js.map": "/son-wear-it-web/static/js/main.dd20b80d.chunk.js.map",
+    "runtime-main.js": "/son-wear-it-web/static/js/runtime-main.9cbe4328.js",
+    "runtime-main.js.map": "/son-wear-it-web/static/js/runtime-main.9cbe4328.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/son-wear-it-web/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.a6731e57.chunk.js": "/son-wear-it-web/static/js/2.a6731e57.chunk.js",
+    "static/js/2.a6731e57.chunk.js.map": "/son-wear-it-web/static/js/2.a6731e57.chunk.js.map",
+    "static/js/3.4c9d229f.chunk.js": "/son-wear-it-web/static/js/3.4c9d229f.chunk.js",
+    "static/js/3.4c9d229f.chunk.js.map": "/son-wear-it-web/static/js/3.4c9d229f.chunk.js.map",
+    "index.html": "/son-wear-it-web/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/son-wear-it-web/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/son-wear-it-web/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.a6731e57.chunk.js.LICENSE.txt": "/son-wear-it-web/static/js/2.a6731e57.chunk.js.LICENSE.txt",
+    "static/media/Cap.4ac62cdd.png": "/son-wear-it-web/static/media/Cap.4ac62cdd.png",
+    "static/media/Cloudy.45dbd8f7.png": "/son-wear-it-web/static/media/Cloudy.45dbd8f7.png",
+    "static/media/Coat.12bed290.png": "/son-wear-it-web/static/media/Coat.12bed290.png",
+    "static/media/Hoodie.a826eac4.png": "/son-wear-it-web/static/media/Hoodie.a826eac4.png",
+    "static/media/LocationPin.73948584.png": "/son-wear-it-web/static/media/LocationPin.73948584.png",
+    "static/media/Mask.2f9b511b.png": "/son-wear-it-web/static/media/Mask.2f9b511b.png",
+    "static/media/Pants.659135c3.png": "/son-wear-it-web/static/media/Pants.659135c3.png",
+    "static/media/Rainy.eb20875e.png": "/son-wear-it-web/static/media/Rainy.eb20875e.png",
+    "static/media/Scarf.76e4b659.png": "/son-wear-it-web/static/media/Scarf.76e4b659.png",
+    "static/media/Shorts.72844fd6.png": "/son-wear-it-web/static/media/Shorts.72844fd6.png",
+    "static/media/Sunblock.91234125.png": "/son-wear-it-web/static/media/Sunblock.91234125.png",
+    "static/media/Sunny.c3363077.png": "/son-wear-it-web/static/media/Sunny.c3363077.png",
+    "static/media/Tshirts.34c51cb2.png": "/son-wear-it-web/static/media/Tshirts.34c51cb2.png",
+    "static/media/Umbrella.00e30642.png": "/son-wear-it-web/static/media/Umbrella.00e30642.png",
+    "static/media/WeatherPin.4c417d78.png": "/son-wear-it-web/static/media/WeatherPin.4c417d78.png",
+    "static/media/WinterJacket.4572af8e.png": "/son-wear-it-web/static/media/WinterJacket.4572af8e.png",
+    "static/media/fine.93a8d177.png": "/son-wear-it-web/static/media/fine.93a8d177.png",
+    "static/media/ultrafine.700dca37.png": "/son-wear-it-web/static/media/ultrafine.700dca37.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9cbe4328.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.a6731e57.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.dd20b80d.chunk.js"
+  ]
+}
